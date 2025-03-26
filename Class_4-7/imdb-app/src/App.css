@@ -1,0 +1,155 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  /* padding: 2rem; */
+  /* text-align: center; */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+  background-color: lightblue;
+  padding: 0 15px;
+}
+
+.header h1 {
+  font-size: 20px;
+}
+.header ul{
+  display: flex;
+  gap: 1em
+}
+
+.header ul li{
+  list-style: none;
+  background-color:  yellow;
+  
+}
+.movie{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  width: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* .movie img {
+  height: 150px;
+
+} */
+
+.movie-list{
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.movie-list-page{
+  padding: 0px 30px;
+
+}
+.movie-name h3,button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.pagination{
+  display: flex;
+}
+
+.pagination button{
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.pagination button.active{
+  background-color: blueviolet;
+}
+
+.pagination-section{
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
+
+}
+
+.container{
+  display: flex;
+  padding: 10px 50px;
+  gap : 1em;
+}
+.container .left-section{
+  display: flex;
+  width: 25%;
+}
+
+.container .right-section{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.container .right-section input{
+  height: 30px;
+  margin: 5px 0px;
+  padding: 0 5px;
+}
+
+.container .right-section table{
+  width: 100%;
+}
+
+.genre-list{
+  display: flex;
+  flex: 1;
+  gap: 1em;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.genre{
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background-color: blueviolet;
+}
