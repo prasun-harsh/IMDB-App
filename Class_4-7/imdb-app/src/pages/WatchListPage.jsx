@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { WatchListContext } from '../assets/context/watchListContext';
 
 let genreids = {
     28: "Action",
@@ -22,7 +23,10 @@ let genreids = {
     37: "Western",
 };
 
-const WatchListPage = ({watchList})=>{
+const WatchListPage = ()=>{
+
+    const WatchListContextData = useContext(WatchListContext)
+    const {watchList,setWatchList} = WatchListContextData;
     const [list,setList] = useState([])
 
     const handleMovieSearch = (e)=>{
@@ -48,6 +52,12 @@ const WatchListPage = ({watchList})=>{
         setList(newList);
     }
 
+    const handleRemoveFromWatchList = (movieID) => {
+        const updatedWatchList = { ...watchList };
+        delete updatedWatchList[movieID];
+        setWatchList(updatedWatchList);
+    };
+
     useEffect(()=>{
         setList(Object.values(watchList))
     },[watchList])
@@ -71,7 +81,7 @@ const WatchListPage = ({watchList})=>{
                             <td>Poster</td>
                             <td>Movie</td>
                             <td>Genere</td>
-                            <td>Popularity <span onClick={()=>handleSorting('DESC')}>^</span><span onClick={()=>handleSorting('ASC')}>v</span></td>
+                            <td>Popularity <span onClick={()=>handleSorting('DESC')}> 🔽 </span><span onClick={()=>handleSorting('ASC')}> 🔼 </span></td>
                         </tr>
                         {
                             Object.values(list).map(movie=>(
@@ -81,6 +91,9 @@ const WatchListPage = ({watchList})=>{
                                     <td>{movie.title}</td>
                                     <td>{movie.genre_ids.map(generIDs => genreids[generIDs]).join(', ')}</td>
                                     <td>{movie.popularity}</td>
+                                    <td>
+                                        <button onClick={() => handleRemoveFromWatchList(movie.id)}>❌ Remove</button>
+                                    </td>
                                 </tr>
                             ))
                         }
